@@ -3,23 +3,23 @@ import type {FilterValues, Task} from './App'
 import {Button} from './Button'
 
 type Props = {
-    filter: FilterValues
     title: string
     tasks: Task[]
+    filter: FilterValues
     deleteTask: (taskId: string) => void
     changeFilter: (filter: FilterValues) => void
     createTask: (title: string) => void
-    changeTaskStatus: (taskId: Task["id"], isDone: Task["isDone"]) => void
+    changeTasksStatus: (taskId: Task["id"], isDone: Task["isDone"]) => void
 }
 
 export const TodolistItem = ({
                                  title,
-                                 filter,
                                  tasks,
+                                 filter,
                                  deleteTask,
                                  changeFilter,
                                  createTask,
-                                 changeTaskStatus,
+                                 changeTasksStatus,
                              }: Props) => {
     const [taskTitle, setTaskTitle] = useState('')
     const [error, setError] = useState(false)
@@ -55,7 +55,7 @@ export const TodolistItem = ({
                        onKeyDown={createTaskOnEnterHandler}/>
                 <Button title={'+'} onClick={createTaskHandler}/>
                 {taskTitle.length === 0 &&
-                    <div style={{color: error ? "red" : "inherit"}}>enter title and press button</div>}
+                    <div style={{color: error ? "red" : "inherit"}}>Enter title and press button</div>}
             </div>
             {tasks.length === 0 ? (
                 <p>Тасок нет</p>
@@ -71,10 +71,9 @@ export const TodolistItem = ({
                                 <input
                                     type="checkbox"
                                     checked={task.isDone}
-                                    onChange={(e) =>
-                                        changeTaskStatus(task.id, e.currentTarget.checked)}/>
-                                <span className={task.isDone ? "task_done" : "task"}
-                                >{task.title}</span>
+                                    onChange={(e) => changeTasksStatus(task.id, e.currentTarget.checked)}
+                                />
+                                <span className={task.isDone ? "task-done" : "task"}>{task.title}</span>
                                 <Button title={'x'} onClick={deleteTaskHandler}/>
                             </li>
                         )
@@ -82,18 +81,18 @@ export const TodolistItem = ({
                 </ul>
             )}
             <div>
-                <Button
-                    title={'All'}
-                    className={filter === 'all' ? "filter-btn-active" : ""}
-                    onClick={() => changeFilter('all')}/>
-                <Button
-                    title={'Active'}
-                    className={filter === 'active' ? "filter-btn-active" : ""}
-                    onClick={() => changeFilter('active')}/>
-                <Button
-                    title={'Completed'}
-                    className={filter === 'completed' ? "filter-btn-active" : ""}
-                    onClick={() => changeFilter('completed')}/>
+                <Button title={'All'}
+                        onClick={() => changeFilter('all')}
+                        className={filter === 'all' ? "filter-btn-active" : ""}
+                />
+                <Button title={'Active'}
+                        onClick={() => changeFilter('active')}
+                        className={filter === 'active' ? "filter-btn-active" : ""}
+                />
+                <Button title={'Completed'}
+                        onClick={() => changeFilter('completed')}
+                        className={filter === 'completed' ? "filter-btn-active" : ""}
+                />
             </div>
         </div>
     )

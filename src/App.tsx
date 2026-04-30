@@ -32,6 +32,7 @@ export const App = () => {
         setFilter(filter)
     }
 
+    const filteredTasks = getFilteredTasks(tasks, filter)
 
     const createTask = (title: string) => {
         const newTask = {id: v1(), title, isDone: false}
@@ -39,9 +40,7 @@ export const App = () => {
         setTasks(newTasks)
     }
 
-    const filteredTasks = getFilteredTasks(tasks, filter)
-
-    const changeTaskStatus = (taskId: Task["id"], isDone: Task["isDone"]) => {
+    const changeTasksStatus = (taskId: Task["id"], isDone: Task["isDone"]) => {
         const nextState: Task[] = tasks.map(t => t.id === taskId ? {...t, isDone: isDone} : t)
         setTasks(nextState)
     }
@@ -54,7 +53,7 @@ export const App = () => {
                           deleteTask={deleteTask}
                           changeFilter={changeFilter}
                           createTask={createTask}
-                          changeTaskStatus={changeTaskStatus}
+                          changeTasksStatus={changeTasksStatus}
             />
         </div>
     )

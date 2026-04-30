@@ -11,21 +11,21 @@
     font-weight: bold;
 }
 
-.task_done {
-    text-decoration: line-through;
+.task-done {
     font-style: italic;
+    text-decoration: line-through;
     opacity: 0.5;
 }
 
 .filter-btn-active {
-    color: white;
-    background-color: #f691de;
-    border: 2px solid #ff1bcc;
-    border-radius: 5px;
+    color: orange;
+    background-color: #fae5be;
+    border: 3px solid orange;
+    border-radius: 10px;
 }
 
 .error {
     border: 3px solid red;
-    border-radius: 5px;
+    border-radius: 3px;
     outline: none;
 }
