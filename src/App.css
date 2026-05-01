@@ -11,19 +11,20 @@
     font-weight: bold;
 }
 
-.task-done {
+.isDone {
     text-decoration: line-through;
+    opacity: 50%;
     font-style: italic;
-    opacity: 30%;
 }
 
 .btn-active {
-    color: #276dd1;
-    background-color: #e6ef70;
-    border-color: #276dd1;
+    color: white;
+    background-color: #4CAF50;
+    border: 3px solid white;
+    border-radius: 5px;
 }
 
 .error {
-    border: 1px solid red;
+    border: 3px solid red;
     outline: none;
 }

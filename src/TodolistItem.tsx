@@ -14,13 +14,12 @@ type Props = {
 
 export const TodolistItem = ({
                                  title,
-                                 tasks,
                                  filter,
+                                 tasks,
                                  deleteTask,
                                  changeFilter,
                                  createTask,
                                  changeTasksStatus,
-
                              }: Props) => {
     const [taskTitle, setTaskTitle] = useState('')
     const [error, setError] = useState(false)
@@ -51,7 +50,7 @@ export const TodolistItem = ({
             <h3>{title}</h3>
             <div>
                 <input value={taskTitle}
-                       className={error ? "error" : ""}
+                       className={error ? "error" : "inherit"}
                        onChange={changeTaskTitleHandler}
                        onKeyDown={createTaskOnEnterHandler}/>
                 <Button title={'+'} onClick={createTaskHandler}/>
@@ -77,7 +76,7 @@ export const TodolistItem = ({
                                     }}
                                 />
                                 <span
-                                    className={task.isDone ? "task-done" : "task"}
+                                    className={task.isDone ? "isDone" : "task"}
                                 >{task.title}</span>
                                 <Button title={'x'} onClick={deleteTaskHandler}/>
                             </li>
@@ -86,17 +85,20 @@ export const TodolistItem = ({
                 </ul>
             )}
             <div>
-                <Button title={'All'}
-                        onClick={() => changeFilter('all')}
-                        className={filter === 'all' ? "btn-active" : ""}
+                <Button
+                    title={'All'}
+                    onClick={() => changeFilter('all')}
+                    className={filter === 'all' ? "btn-active" : ""}
                 />
-                <Button title={'Active'}
-                        onClick={() => changeFilter('active')}
-                        className={filter === 'active' ? "btn-active" : ""}
+                <Button
+                    title={'Active'}
+                    onClick={() => changeFilter('active')}
+                    className={filter === 'active' ? "btn-active" : ""}
                 />
-                <Button title={'Completed'}
-                        onClick={() => changeFilter('completed')}
-                        className={filter === 'completed' ? "btn-active" : ""}
+                <Button
+                    title={'Completed'}
+                    onClick={() => changeFilter('completed')}
+                    className={filter === 'completed' ? "btn-active" : ""}
                 />
             </div>
         </div>

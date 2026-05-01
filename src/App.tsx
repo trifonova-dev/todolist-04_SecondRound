@@ -31,7 +31,6 @@ export const App = () => {
     const changeFilter = (filter: FilterValues) => {
         setFilter(filter)
     }
-
     const filteredTasks = getFilteredTasks(tasks, filter)
 
     const createTask = (title: string) => {
