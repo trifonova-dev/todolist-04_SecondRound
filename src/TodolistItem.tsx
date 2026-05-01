@@ -71,7 +71,7 @@ export const TodolistItem = ({
                                 <input
                                     type="checkbox"
                                     checked={task.isDone}
-                                    onChange={(e => changeTasksStatus(task.id, e.currentTarget.checked))}
+                                    onChange={(e) => changeTasksStatus(task.id, e.currentTarget.checked)}
                                 />
                                 <span
                                     className={task.isDone ? "task-done" : "task"}
@@ -79,24 +79,22 @@ export const TodolistItem = ({
                                 <Button title={'x'} onClick={deleteTaskHandler}/>
                             </li>
                         )
+
                     })}
                 </ul>
             )}
             <div>
-                <Button
-                    title={'All'}
-                    onClick={() => changeFilter('all')}
-                    className={filter == 'all' ? "filter-btn-active" : ""}
+                <Button title={'All'}
+                        onClick={() => changeFilter('all')}
+                        className={filter === 'all' ? "btn-active" : ""}
                 />
-                <Button
-                    title={'Active'}
-                    onClick={() => changeFilter('active')}
-                    className={filter == 'active' ? "filter-btn-active" : ""}
+                <Button title={'Active'}
+                        onClick={() => changeFilter('active')}
+                        className={filter === 'active' ? "btn-active" : ""}
                 />
-                <Button
-                    title={'Completed'}
-                    onClick={() => changeFilter('completed')}
-                    className={filter == 'completed' ? "filter-btn-active" : ""}
+                <Button title={'Completed'}
+                        onClick={() => changeFilter('completed')}
+                        className={filter === 'completed' ? "btn-active" : ""}
                 />
             </div>
         </div>
