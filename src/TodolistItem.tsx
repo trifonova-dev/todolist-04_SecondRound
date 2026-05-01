@@ -3,9 +3,9 @@ import type {FilterValues, Task} from './App'
 import {Button} from './Button'
 
 type Props = {
+    filter: FilterValues
     title: string
     tasks: Task[]
-    filter: FilterValues
     deleteTask: (taskId: string) => void
     changeFilter: (filter: FilterValues) => void
     createTask: (title: string) => void
@@ -13,9 +13,9 @@ type Props = {
 }
 
 export const TodolistItem = ({
+                                 filter,
                                  title,
                                  tasks,
-                                 filter,
                                  deleteTask,
                                  changeFilter,
                                  createTask,
@@ -71,9 +71,11 @@ export const TodolistItem = ({
                                 <input
                                     type="checkbox"
                                     checked={task.isDone}
-                                    onChange={(e) => changeTasksStatus(task.id, e.currentTarget.checked)}
+                                    onChange={(e => changeTasksStatus(task.id, e.currentTarget.checked))}
                                 />
-                                <span className={task.isDone ? "task-done" : "task"}>{task.title}</span>
+                                <span
+                                    className={task.isDone ? "task-done" : "task"}
+                                >{task.title}</span>
                                 <Button title={'x'} onClick={deleteTaskHandler}/>
                             </li>
                         )
@@ -81,17 +83,20 @@ export const TodolistItem = ({
                 </ul>
             )}
             <div>
-                <Button title={'All'}
-                        onClick={() => changeFilter('all')}
-                        className={filter === 'all' ? "filter-btn-active" : ""}
+                <Button
+                    title={'All'}
+                    onClick={() => changeFilter('all')}
+                    className={filter == 'all' ? "filter-btn-active" : ""}
                 />
-                <Button title={'Active'}
-                        onClick={() => changeFilter('active')}
-                        className={filter === 'active' ? "filter-btn-active" : ""}
+                <Button
+                    title={'Active'}
+                    onClick={() => changeFilter('active')}
+                    className={filter == 'active' ? "filter-btn-active" : ""}
                 />
-                <Button title={'Completed'}
-                        onClick={() => changeFilter('completed')}
-                        className={filter === 'completed' ? "filter-btn-active" : ""}
+                <Button
+                    title={'Completed'}
+                    onClick={() => changeFilter('completed')}
+                    className={filter == 'completed' ? "filter-btn-active" : ""}
                 />
             </div>
         </div>

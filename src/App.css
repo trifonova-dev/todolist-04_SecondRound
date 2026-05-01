@@ -12,20 +12,20 @@
 }
 
 .task-done {
-    font-style: italic;
     text-decoration: line-through;
+    font-style: italic;
     opacity: 0.5;
 }
 
 .filter-btn-active {
-    color: orange;
-    background-color: #fae5be;
-    border: 3px solid orange;
-    border-radius: 10px;
+    color: #0c0e0c;
+    background-color: #92f896;
+    border: 3px solid #19cd1d;
+    border-radius: 5px;
 }
 
 .error {
-    border: 3px solid red;
-    border-radius: 3px;
+    border: 2px solid red;
+    border-radius: 2px;
     outline: none;
 }
