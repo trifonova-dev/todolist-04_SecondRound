@@ -13,20 +13,21 @@ type Props = {
 }
 
 export const TodolistItem = ({
-                                 filter,
                                  title,
                                  tasks,
+                                 filter,
                                  deleteTask,
                                  changeFilter,
                                  createTask,
                                  changeTasksStatus,
+
                              }: Props) => {
     const [taskTitle, setTaskTitle] = useState('')
     const [error, setError] = useState(false)
 
     const createTaskHandler = () => {
-        const trimmedTitle = taskTitle.trim()
-        if (trimmedTitle) {
+        const trimmedTasks = taskTitle.trim()
+        if (trimmedTasks) {
             createTask(taskTitle)
         } else {
             setError(true)
@@ -71,7 +72,9 @@ export const TodolistItem = ({
                                 <input
                                     type="checkbox"
                                     checked={task.isDone}
-                                    onChange={(e) => changeTasksStatus(task.id, e.currentTarget.checked)}
+                                    onChange={(e) => {
+                                        changeTasksStatus(task.id, e.currentTarget.checked)
+                                    }}
                                 />
                                 <span
                                     className={task.isDone ? "task-done" : "task"}
@@ -79,7 +82,6 @@ export const TodolistItem = ({
                                 <Button title={'x'} onClick={deleteTaskHandler}/>
                             </li>
                         )
-
                     })}
                 </ul>
             )}

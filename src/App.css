@@ -14,17 +14,16 @@
 .task-done {
     text-decoration: line-through;
     font-style: italic;
+    opacity: 30%;
 }
 
-.btn-active{
-    color: white;
-    border: 1px solid #ffa6e5;
-    border-radius: 3px;
-    background-color: #fb57cf;
+.btn-active {
+    color: #276dd1;
+    background-color: #e6ef70;
+    border-color: #276dd1;
 }
 
-.error{
-    color: red;
+.error {
     border: 1px solid red;
     outline: none;
 }
