@@ -3,8 +3,8 @@ import type {FilterValues, Task} from './App'
 import {Button} from './Button'
 
 type Props = {
-    filter: FilterValues
     title: string
+    filter: FilterValues
     tasks: Task[]
     deleteTask: (taskId: string) => void
     changeFilter: (filter: FilterValues) => void
@@ -35,7 +35,7 @@ export const TodolistItem = ({
     }
 
     const changeTaskTitleHandler = (event: ChangeEvent<HTMLInputElement>) => {
-        error && setError(false)
+        error && setError(true)
         setTaskTitle(event.currentTarget.value)
     }
 
@@ -50,7 +50,7 @@ export const TodolistItem = ({
             <h3>{title}</h3>
             <div>
                 <input value={taskTitle}
-                       className={error ? "error" : "inherit"}
+                       className={error ? "error" : ""}
                        onChange={changeTaskTitleHandler}
                        onKeyDown={createTaskOnEnterHandler}/>
                 <Button title={'+'} onClick={createTaskHandler}/>
@@ -71,12 +71,10 @@ export const TodolistItem = ({
                                 <input
                                     type="checkbox"
                                     checked={task.isDone}
-                                    onChange={(e) => {
-                                        changeTasksStatus(task.id, e.currentTarget.checked)
-                                    }}
+                                    onChange={(e) => changeTasksStatus(task.id, e.currentTarget.checked)}
                                 />
                                 <span
-                                    className={task.isDone ? "isDone" : "task"}
+                                    className={task.isDone ? "task-done" : "task"}
                                 >{task.title}</span>
                                 <Button title={'x'} onClick={deleteTaskHandler}/>
                             </li>

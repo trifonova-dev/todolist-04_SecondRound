@@ -11,16 +11,14 @@
     font-weight: bold;
 }
 
-.isDone {
+.task-done {
     text-decoration: line-through;
-    opacity: 50%;
     font-style: italic;
 }
 
 .btn-active {
-    color: white;
-    background-color: #4CAF50;
-    border: 3px solid white;
+    background-color: #a0ec63;
+    border-color: #92ff3c;
     border-radius: 5px;
 }
 
