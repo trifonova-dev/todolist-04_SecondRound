@@ -35,7 +35,7 @@ export const TodolistItem = ({
     }
 
     const changeTaskTitleHandler = (event: ChangeEvent<HTMLInputElement>) => {
-        error && setError(true)
+        error && setError(false)
         setTaskTitle(event.currentTarget.value)
     }
 

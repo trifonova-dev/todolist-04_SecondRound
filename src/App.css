@@ -14,15 +14,18 @@
 .task-done {
     text-decoration: line-through;
     font-style: italic;
+    opacity: 30%;
 }
 
 .btn-active {
-    background-color: #a0ec63;
-    border-color: #92ff3c;
+    border: 3px solid #ff4d74;
     border-radius: 5px;
+    background-color: #ff89a1;
+
 }
 
 .error {
     border: 3px solid red;
+    border-radius: 3px;
     outline: none;
 }
