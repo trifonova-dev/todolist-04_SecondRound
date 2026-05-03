@@ -18,14 +18,12 @@
 }
 
 .btn-active {
-    border: 3px solid #ff4d74;
+    background-color: #ff6f45;
+    border: 3px solid #f44311;
     border-radius: 5px;
-    background-color: #ff89a1;
-
 }
 
 .error {
     border: 3px solid red;
-    border-radius: 3px;
     outline: none;
 }

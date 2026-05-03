@@ -3,10 +3,11 @@ import type {FilterValues, Task} from './App'
 import {Button} from './Button'
 
 type Props = {
-    title: string
     filter: FilterValues
+    title: string
     tasks: Task[]
     deleteTask: (taskId: string) => void
+
     changeFilter: (filter: FilterValues) => void
     createTask: (title: string) => void
     changeTasksStatus: (taskId: Task["id"], isDone: Task["isDone"]) => void
@@ -31,6 +32,7 @@ export const TodolistItem = ({
         } else {
             setError(true)
         }
+
         setTaskTitle('')
     }
 
@@ -54,8 +56,7 @@ export const TodolistItem = ({
                        onChange={changeTaskTitleHandler}
                        onKeyDown={createTaskOnEnterHandler}/>
                 <Button title={'+'} onClick={createTaskHandler}/>
-                {taskTitle.length === 0 &&
-                    <div style={{color: error ? "red" : "inherit"}}>Enter title and press button</div>}
+                {taskTitle.length === 0 && <div style={{color: error ? "red" : ""}}>Enter title and press button</div>}
             </div>
             {tasks.length === 0 ? (
                 <p>Тасок нет</p>
